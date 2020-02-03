@@ -27,14 +27,15 @@ jobs:
       run: |
        zip -r myapp.zip .
     # Azure login
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }} # Define secret variable in repository settings as per action documentation
+   # - uses: azure/login@v1
+     # with:
+     #   creds: ${{ secrets.AZURE_CREDENTIALS }} # Define secret variable in repository settings as per action documentation
         
     # deploy web app
     - uses: azure/webapps-deploy@v1
       with: 
         app-name: rr-app-testing-01-wa  # Replace with your app name
+        publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
         package: './myapp.zip'
 
     # Add startup command in app service configuration if required
