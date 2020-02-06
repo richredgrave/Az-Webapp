@@ -1,0 +1,24 @@
+{
+    "name": "Richrule1",
+    "type": "Microsoft.Network/networkSecurityGroups",
+    "apiVersion": "2018-08-01",
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "securityRules": [
+            {
+                "name": "nsgRule1",
+                "properties": {
+                    "description": "description",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "*",
+                    "sourceAddressPrefix": "*",
+                    "destinationAddressPrefix": "*",
+                    "access": "Allow",
+                    "priority": 100,
+                    "direction": "Inbound"
+                }
+            }
+        ]
+    }
+}
